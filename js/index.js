@@ -21,7 +21,7 @@ if (productos==null){
 
 carro.addEventListener('click',()=>{  
   console.log("CLICK EN CARRO");
-  window.location.href=`../pages/carrito.html`;
+  window.location.href='./pages/carrito.html';
 });
 
 
