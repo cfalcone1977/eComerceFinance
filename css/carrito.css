@@ -110,15 +110,11 @@
 @media (max-width: 700px){
 #encabezado{
  height: 160px;
-
 }
-#titulo{
-  padding-left: 25%;
-
 }
+
 @media (max-width: 450px){
  #titulo{
  font-size: 14px;
 }   
-}
 }
