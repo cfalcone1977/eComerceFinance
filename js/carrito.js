@@ -63,8 +63,19 @@ function mostrarInstrumentosCarrito(inversiones){
         contDesc.appendChild(descripcion);
         tarjetaInversion.appendChild(contDesc);
 
+
+        const botonMas=document.createElement('img');
+        botonMas.setAttribute('id','botonMas');
+        botonMas.src='../imagenes/mas.svg';
+        const botonMenos=document.createElement('img');
+        botonMenos.setAttribute('id','botonMenos');
+        botonMenos.src='../imagenes/menos.svg';
+        contCant.appendChild(botonMas);
         contCant.appendChild(cantidad);
+        contCant.appendChild(botonMenos);        
         tarjetaInversion.appendChild(contCant);
+
+
 
         contPrecio.appendChild(precio);
         tarjetaInversion.appendChild(contPrecio);

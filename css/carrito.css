@@ -66,7 +66,7 @@
     border-radius: 7px;
     gap: 4%;
 }
-#contImg, #contDesc, #contCant, #contPrecio, #contSubtotal, #contEliminar{
+#contImg, #contDesc, #contPrecio, #contSubtotal, #contEliminar{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -100,6 +100,15 @@
     font-size: 20px;
     font-weight: bold;
 }
+#contCant{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 8px;
+}
+
+
+
 
 @media (max-width: 940px){
 #encabezado{
