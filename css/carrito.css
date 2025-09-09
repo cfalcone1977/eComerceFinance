@@ -1,0 +1,124 @@
+#titulo{
+    font-family: "Poppins";
+    padding-left: 0%;
+    margin: 0;
+}
+
+#tituloCarritoInversiones{
+    text-align: center;
+    font-family: "Poppins";
+    margin-top: 15px;
+    margin-bottom: 3px;
+    color:rgb(223, 45, 178) ;
+}
+
+
+#contenedorDetalleCarrito{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+}
+
+#botonPagar{
+    font-family: "Poppins";
+    font-weight: bold;
+    width: 70px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    border: none;
+    background-color: beige;
+    box-shadow: 3px 3px 10px 1px black;
+}
+
+#botonPagar:hover{
+    transform: scale(1.3);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#botonEliminar{
+    margin-right: 10px;
+    font-family: "Poppins";
+    width: 70px;
+    height: 25px;
+    border-radius: 7px;
+    border: none;
+    background-color: beige;
+    box-shadow: 2px 2px 7px 1px black;
+
+}
+#botonEliminar:hover{
+ cursor: pointer;
+}
+
+
+#tarjetaCarro{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: rgb(223, 45, 178)  solid;
+    border-radius: 7px;
+    gap: 4%;
+}
+#contImg, #contDesc, #contCant, #contPrecio, #contSubtotal, #contEliminar{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+
+#contImg{
+    width: 60px;
+}
+#contDesc{
+    width: 180px;
+}
+#contCant{
+    width: 20px;  
+}
+#contPrecio{
+    width: 75px;
+}
+#contSubtotal{
+    width: 90px;
+}
+#contEliminar{
+    width: 80px;
+}
+
+#contenedorTotal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 940px){
+#encabezado{
+ height: 150px;
+
+}
+}
+@media (max-width: 700px){
+#encabezado{
+ height: 160px;
+
+}
+#titulo{
+  padding-left: 25%;
+
+}
+@media (max-width: 450px){
+ #titulo{
+ font-size: 14px;
+}   
+}
+}

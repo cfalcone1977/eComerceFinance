@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tagesschrift&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/detalle.css">
+    <title>eCommerce Finance</title>
+</head>
+<body>
+  <header>
+     <div id="encabezado">
+      <div  id="titulo">
+      <h1>e-Commerce FINANCE</h1> 
+      <h3>...encontrando la libertad Financiera.</h3>     
+      </div> 
+      <div id="contenedorCarro">
+      <a ><img src="../imagenes/cart4.svg" alt="Carrito Compras"  id="carro"></a>        
+      </div>
+     </div>
+  </header>
+  <main>
+    <section>
+     <div id="contenedorDetalleInstrumento">
+      <h3 id="tituloPaquete">PAQUETE de INVERSION</h3>
+        <section id="seccionIMG">
+           <img id="imagenD" src="" alt="Paquete Inversion Elegido">
+
+        </section>  
+        <section id="seccionDatos">
+          <p id="descripcionD"></p>
+          <p id="tipoD"></p>
+          <p id="detalleD"></p>
+          <p id="rendimientoD"></p>
+          <p id="precioPaqueteD"></p>
+        </section>
+        <section id="seccionCantidad">
+          <label for="cantidadD"></label><input id="inputCantidad" type="number" placeholder="0" min=0 max=10>
+          <pre >Cant.</pre>
+        </section>
+     </div>
+    </section> 
+    <section id="seccionBotones">
+      <a href="../index.html"><button id="botonVolver">Volver</button></a>
+      <a ><button id="botonAgregaraCarro">invertir</button></a>
+    </section>
+  </main>
+</body>
+<script src="../js/detalle.js" type="module"></script>
+</html>
