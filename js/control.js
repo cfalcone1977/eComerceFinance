@@ -1,4 +1,4 @@
-import { traerProductos, urlbase } from "./apis.js";
+import { traerProductos, urlbase } from "./apis.js"; 
 
 
 
