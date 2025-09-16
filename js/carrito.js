@@ -1,8 +1,11 @@
-import { eliminarItemCarrito, traerProductos, urlCarro, verificarCarritoLlenoVacio } from "./apis.js";
+import { eliminarItemCarrito, traerProductos, urlCarro, verificarCarritoLlenoVacio} from "./apis.js";
+import { traerInstrumentoCarritoxID, modificarInversionCarrito, modificarCantidadxId } from "./apis.js";
 import { mostrarError } from "./control.js";
 
 const contenedorDetalleCarrito=document.getElementById("contenedorDetalleCarrito");
+
 const total=document.getElementById('total');
+const botonPagar=document.getElementById('botonPagar');
 
 const instrumentos=await traerProductos(urlCarro);
 
@@ -28,10 +31,11 @@ function mostrarInstrumentosCarrito(inversiones){
         */
 
         const precio=document.createElement("pre");
-        precio.textContent=`$ ${inversiones[i].precio}`;
+        precio.textContent=`${inversiones[i].precio}`;
 
         const cantidad=document.createElement("pre");
         cantidad.textContent=inversiones[i].cantidad;
+        cantidad.setAttribute('id','cantItemCarro')
         
         const subtotal=document.createElement("pre");
         console.log(Number(inversiones[i].precio))
@@ -67,15 +71,16 @@ function mostrarInstrumentosCarrito(inversiones){
         const botonMas=document.createElement('img');
         botonMas.setAttribute('id','botonMas');
         botonMas.src='../imagenes/mas.svg';
+        botonMas.setAttribute('data-id',inversiones[i].id);  //uso idOrigen en este caso
         const botonMenos=document.createElement('img');
         botonMenos.setAttribute('id','botonMenos');
         botonMenos.src='../imagenes/menos.svg';
-        contCant.appendChild(botonMas);
+        botonMenos.setAttribute('data-id',inversiones[i].id); //uso idOrigen o id en este caso CREO es conveniente id
+
+        contCant.appendChild(botonMenos);
         contCant.appendChild(cantidad);
-        contCant.appendChild(botonMenos);        
+        contCant.appendChild(botonMas);
         tarjetaInversion.appendChild(contCant);
-
-
 
         contPrecio.appendChild(precio);
         tarjetaInversion.appendChild(contPrecio);
@@ -88,7 +93,7 @@ function mostrarInstrumentosCarrito(inversiones){
         contenedorDetalleCarrito.appendChild(tarjetaInversion);
     }
 
-    total.textContent=`Total a Invertir: $ ${acumulador.toFixed(2)}`;
+    total.textContent=acumulador.toFixed(2);
 
 }
 
@@ -96,13 +101,19 @@ if (instrumentos!=null){
                          console.log(instrumentos);
                          mostrarInstrumentosCarrito(instrumentos);
                          seleccionarItem();
+                         botonPagar.addEventListener('click',()=>{
+                                  console.log("INICIAR PAGO");
+                         });
                        } else {
                                mostrarError();
                               };
 
 
+
+
 function seleccionarItem(){
                             contenedorDetalleCarrito.addEventListener('click',async (evento)=>{
+                                     console.log(evento.target.parentElement);
                                      if (evento.target.id==='botonEliminar'){
                                                               console.log(evento.target.dataset.id);                                                              
                                                               await eliminarItemCarrito(evento.target.dataset.id);
@@ -112,10 +123,112 @@ function seleccionarItem(){
                                                               console.log(instrumentosCarro);
                                                               mostrarInstrumentosCarrito(instrumentosCarro);
                                                               await verificarCarritoLlenoVacio();
-                                                              //const identificador=Number(evento.target.dataset.id);
-                                                              //console.log(identificador);
-                                                              //window.location.href=`./HTMLS/detalle.html?id=${identificador}`;
                                                                 }
+                                     /*
+                                     if (evento.target.id==='contCant'){ 
+                                                                       console.log(evento.target.textContent);
+                                                                       const cantidad=Number(evento.target.textContent);
+                                                                       evento.target.textContent=cantidad+1;
+                                                                       console.log(evento.target.textContent);
+                                                                       }*/
+
+                                     if (evento.target.id==='botonMas'){
+                                                              console.log("Aumenta Cantidad");
+                                                              const contenedorPadre=evento.target.parentElement; //referencia Boton +
+                                                              const hermano=evento.target.previousElementSibling; // refencia Hermano, osea, indicador Cantidad
+                                                              console.log(hermano.textContent);
+                                                              let cantidad=Number(hermano.textContent);
+                                                              const cantidadAnterior=cantidad;
+                                                              if (cantidad<10){
+                                                                          cantidad=cantidad+1;
+                                                                          hermano.textContent=cantidad;
+                                                                          const precio=contenedorPadre.nextElementSibling; // referenca hermano contenador cantidad, osea cntendor precio
+                                                                          const calculoSubtotal=cantidad*(Number(precio.textContent));
+                                                                          const ContenedorSubTotal=precio.nextElementSibling; // referencia hermano contenedor precio, osea contenedor subtotal
+                                                                          const subTotal=ContenedorSubTotal.firstElementChild; // referencia hijo contenedor subtotal, osea el "pre" que contiene el subtotal
+                                                                          subTotal.textContent=`$ ${calculoSubtotal.toFixed(2)}`; // cambiando el valor del subtotal.  
+                                                                          console.log(cantidadAnterior);
+                                                                          console.log (Number(precio.textContent));
+                                                                          console.log(calculoSubtotal);
+                                                                          console.log(total.textContent);
+                                                                          const nuevoTotal=(Number(total.textContent))-(cantidadAnterior*(Number(precio.textContent)))+(calculoSubtotal);
+                                                                          console.log(nuevoTotal);
+                                                                          total.textContent=nuevoTotal.toFixed(2);
+                                                                          //console.log(evento.target.dataset.id);
+                                                                          const idInstrCarrito=Number(evento.target.dataset.id);
+                                                                          console.log(idInstrCarrito);
+                                                                          modificarCantidadxId(idInstrCarrito,cantidad);
+                                                                          /*
+                                                                          const precio=document.getElementById("contPrecio");
+                                                                          const calculoNuevoSubtotal=cantidad*Number(precio.textContent);
+                                                                          console.log(calculoNuevoSubtotal);
+                                                                          const subTotal=document.getElementById("contSubtotal");
+                                                                          subTotal.textContent=`$ ${calculoNuevoSubtotal}`;*/
+                                                                              }else{
+                                                                                    console.log("La inversión MAXIMA es de 10 paquetes");
+                                                                                    alert("La inversión MAXIMA es 10 paquetes.");
+                                                                                   }
+                                                               /*
+                                                              console.log(contenedorPadre);
+                                                              console.log(contenedorPadre.id);
+                                                              console.log(contenedorPadre.textContent);
+                                                              console.log(evento.target.dataset.id);
+                                                              const identificadorMas=evento.target.dataset.id;*/
+                                                              //const instrumentoCarroMas=await traerInstrumentoCarritoxID(identificadorMas);
+                                                              //console.log(instrumentoCarroMas.cantidad);//instrumentoCarroMas.cantidad
+                                                              //hay que traer inversion, cambiar cantidad y enviar a modificarla
+                                                              //console.log(instrumentosCarroMas)
+                                                              //modificarInversionCarrito(identificador,cantidad);
+                                                                       }                                                                       
+                                     if (evento.target.id==='botonMenos'){
+                                                              console.log("Disminuye Cantidad");
+                                                              const contenedorPadre=evento.target.parentElement;
+                                                              const hermano=evento.target.nextElementSibling;
+                                                              console.log(hermano.textContent);
+                                                              let cantidad=Number(hermano.textContent);
+                                                              const cantidadAnterior=cantidad;                                                              
+                                                              if (cantidad>1){
+                                                                          cantidad=cantidad-1;
+                                                                          hermano.textContent=cantidad;
+                                                                          const precio=contenedorPadre.nextElementSibling; // referenca hermano contenador cantidad, osea cntendor precio
+                                                                          console.log(Number(precio.textContent));
+                                                                          const calculoSubtotal=cantidad*(Number(precio.textContent));
+                                                                          const ContenedorSubTotal=precio.nextElementSibling; // referencia hermano contenedor precio, osea contenedor subtotal
+                                                                          const subTotal=ContenedorSubTotal.firstElementChild; // referencia hijo contenedor subtotal, osea el "pre" que contiene el subtotal
+                                                                          subTotal.textContent=`$ ${calculoSubtotal.toFixed(2)}`; // cambiando el valor del subtotal.  
+                                                                          console.log(cantidadAnterior);
+                                                                          console.log (Number(precio.textContent));
+                                                                          console.log(calculoSubtotal);
+                                                                          console.log(total.textContent);
+                                                                          const nuevoTotal=(Number(total.textContent))-(cantidadAnterior*(Number(precio.textContent)))+(calculoSubtotal);
+                                                                          console.log(nuevoTotal);
+                                                                          total.textContent=nuevoTotal.toFixed(2);
+                                                                          console.log(typeof(evento.target.dataset.id));
+                                                                          const idInstrCarrito=Number(evento.target.dataset.id);
+                                                                          modificarCantidadxId(idInstrCarrito,cantidad);
+                                                                             }else{
+                                                                                console.log("La inversión MINIMA es de 1 paquete");
+                                                                                alert("La inversión MINIMA es 1 paquete.");
+                                                                             }
+
+
+
+
+                                                              /*
+                                                              console.log(evento.target.dataset.id);
+                                                              const identificadorMenos=evento.target.dataset.id;
+                                                              const instrumentoCarroMenos=await traerInstrumentoCarritoxID(identificadorMenos);                                              
+                                                              console.log(instrumentoCarroMenos.cantidad);*/
+                                                              /*
+                                                              if (instrumentoCarroMenos.cantidad>1){
+                                                                          console.log(`DescontarCantidad ${instrumentoCarroMenos.cantidad-1}`);
+                                                              }else {
+                                                                      console.log("Cantidad no puede ser menor de 1")
+                                                                    }*/
+                                                              //modificarInversionCarrito(identificador,cantidad);                                                              
+                                                                       }    
+                                                                                                                                           
+
 
                             });
 }

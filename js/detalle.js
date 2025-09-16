@@ -50,8 +50,10 @@ if (instrumentoCompleto!=null){
                                                                                     console.log(existe);
                                                                                     if (existe){
                                                                                                      await modificarInversionCarrito(instrumentoCompleto.id,cantPaq);   
+                                                                                                     window.location.href='../index.html';
                                                                                                }else{
                                                                                                      await enviarInversionCarrito(cantPaq,instrumentoCompleto);
+                                                                                                     window.location.href='../index.html';
                                                                                                     }
                                                                                     }else{
 

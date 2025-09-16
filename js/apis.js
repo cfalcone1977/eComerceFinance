@@ -17,6 +17,21 @@ export async function traerProductos(url){
     }
 }
 
+export async function traerInstrumentoCarritoxID(id){
+    try{
+       const response = await fetch(urlCarro+"/"+id);
+       if (!response.ok) {
+          throw new Error(`Error al conectar: ${response.status}`);
+       }
+       const dato = await response.json();
+       return dato;
+    }
+    catch{
+        console.log('Ha ocurrido un error: ');
+        return null;
+    }
+}
+
 export async function verificarCarritoLlenoVacio(){
     try{
        const response = await fetch(urlCarro);
@@ -53,7 +68,22 @@ export async function existeIntrumentoenCarrito(instrumento){
         console.log("El instrumento NO EXISTE");  
         return false;
 }
-
+export async function modificarCantidadxId(id,cantidad){
+   try{
+          const cuerpoMensaje={cantidad: cantidad};
+          const response= await fetch(urlCarro+"/"+id,{
+          method: 'PUT',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(cuerpoMensaje),
+          });
+          if (!response.ok) {
+                           throw new Error(`Error al conectar: ${response.status}`);
+                            }          
+   }
+   catch{
+      console.log('Ha ocurrido un error');
+   }
+}
 
 export async function modificarInversionCarrito(idOrigen,cantidad){
      try{
@@ -63,6 +93,9 @@ export async function modificarInversionCarrito(idOrigen,cantidad){
                                                           //arregloInstrumentos[i].cantidad=Number(arregloInstrumentos[i].cantidad)+Number(cantidad);
                                                           const cantidadModificada=Number(arregloInstrumentos[i].cantidad)+Number(cantidad);
                                                           console.log(arregloInstrumentos[i].cantidad); 
+                                                          if ((cantidadModificada>10) || (cantidadModificada<0)){
+                                                                                      alert("La INVERSION ya EXISTE en carrito, cantidad MAXIMA 10");
+                                                                                    }else{
                                                           const instrumentoModificado={ descripcion: arregloInstrumentos[i].descripcion,
                                                                                     tipo: arregloInstrumentos[i].tipo, detalle: arregloInstrumentos[i].detalle, 
                                                                                     redimiento: arregloInstrumentos[i].redimiento, precio: arregloInstrumentos[i].precio,
@@ -74,7 +107,9 @@ export async function modificarInversionCarrito(idOrigen,cantidad){
                                                                                                 });
                                                           if (!response.ok) {
                                                                     throw new Error(`Error al conectar: ${response.status}`);
-                                                          }
+                                                                            }
+                                                                                          }
+
                                                           
                                                           }
             
