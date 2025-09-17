@@ -1,0 +1,81 @@
+#contenedorDetalleInversiones{
+ display: flex;
+ flex-wrap: wrap;
+ align-items: center;
+ justify-content: center;
+ gap: 10px;
+}
+
+#tarjetaInversion{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align:center;
+    align-items:center;
+    justify-content:space-around;
+    border: none;
+    border-radius: 5px;
+    gap: 1%;;
+}
+
+#contImg{
+    width: 11%;
+}
+#contDesc{
+    width: 33%;
+
+}
+#contCant{
+    width: 4%;  
+
+}
+#contPrecio{
+    width: 13%;
+}
+#contSubtotal{
+    width: 16%;
+}
+
+#contenedorTotal{
+    padding-top: 15px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+#totalPaquetes, #totalInversiones{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+#modoPago{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ font-family: "Poppins";
+
+}
+
+@media (max-width: 650px){
+    #contImg{
+            width: 8%;
+}
+#contDesc{
+    font-size: 7px;
+
+}
+#contCant{
+    font-size: 11px;
+
+}
+#contPrecio{
+    font-size: 11px;
+}
+#contSubtotal{
+    font-size: 11px;
+}
+}

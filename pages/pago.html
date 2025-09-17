@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/detalle.css">
     <link rel="stylesheet" href="../css/carrito.css">
+    <link rel="stylesheet" href="../css/pago.css">
     <title>eCommerce Finance</title>
 </head>
 <body>
@@ -22,17 +23,27 @@
   </header>
   <main>
     <section>
-     <h3 id="tituloCarritoInversiones">CARRITO de INVERSION/ES</h3>      
-     <div id="contenedorDetalleCarrito">
-      
+     <h3 id="tituloCarritoInversiones">Detalle de INVERSION/ES</h3>      
+     <div id="contenedorDetalleInversiones">
      </div>
     </section> 
     <section id="contenedorTotal">
-      <pre>Total a Invertir: $ </pre><pre id="total"></pre>
+      <pre id="totalPaquetes">Cantidad de Paquetes a invertir: </pre> 
+      <pre id="totalInversiones">Monto total a Invertir: $ </pre>
+    </section>
+    <section id="modoPago">
+            <h2>Selecciona tu Método de Pago</h2>
+            <div id="optiones">
+                <label><input type="radio" name="tipoPago" id="opTarjeta" checked> Tarjeta</label>
+                <p></p>
+                <label><input type="radio" name="tipoPago" id="opTransferencia">Transferencia</label>
+            </div>
+            <div id="contenedorFormulario">
+
+            </div>
     </section>
     <section id="seccionBotones">
-      <a href="../index.html"><button id="botonVolver">Volver</button></a>
-      <a ><button id="botonPagar">Pagar</button></a>
+      <a href="../pages/carrito.html"><button id="botonVolver">Volver</button></a>
     </section>
   </main>
 </body>
