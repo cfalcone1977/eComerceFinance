@@ -33,13 +33,32 @@
     </section>
     <section id="modoPago">
             <h2>Selecciona tu Método de Pago</h2>
-            <div id="optiones">
+            <div id="opciones">
                 <label><input type="radio" name="tipoPago" id="opTarjeta" checked> Tarjeta</label>
-                <p></p>
                 <label><input type="radio" name="tipoPago" id="opTransferencia">Transferencia</label>
             </div>
             <div id="contenedorFormulario">
-
+             <form id="card-form" class="payment-form">
+                    <h3>Datos de la Tarjeta</h3>
+                    <div class="ingresoDatos">
+                        <label for="card-number">Número de Tarjeta</label>
+                        <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required maxlength="19">
+                    </div>
+                    <div class="ingresoDatos">
+                        <label for="card-name">Nombre de Tarjeta</label>
+                        <input type="text" id="card-name" placeholder="Como aparece en la tarjeta" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="ingresoDatos">
+                            <label for="expiry-date">Vencimiento (MM/AA)</label>
+                            <input type="text" id="expiry-date" placeholder="MM/AA" required maxlength="5">
+                        </div>
+                        <div class="ingresoDatos">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="XXX" required maxlength="3">
+                        </div>
+                    </div>
+             </form>
             </div>
     </section>
     <section id="seccionBotones">

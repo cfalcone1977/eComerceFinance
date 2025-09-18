@@ -1,5 +1,8 @@
 import { traerProductos, urlCarro } from "./apis.js";
 
+const opTarjeta=document.getElementById('opTarjeta');
+const opTransferencia=document.getElementById('opTransferencia');
+
 async function mostrarDetalleInversiones(){
     const inversiones=await traerProductos(urlCarro);
     console.log(inversiones);
@@ -16,11 +19,11 @@ async function mostrarDetalleInversiones(){
 
         const imagen=document.createElement("img");
         imagen.setAttribute('src',inversiones[i].imagen);  
-        imagen.style.maxWidth='50px'; 
+        imagen.style.maxWidth='30px'; 
 
         const descripcion=document.createElement("pre");
         descripcion.textContent=inversiones[i].descripcion;
-        descripcion.style.fontSize='12px';
+        descripcion.style.fontSize='14px';
 
        /*
         const rendimiento=document.createElement("p");
@@ -97,5 +100,13 @@ async function mostrarDetalleInversiones(){
     totalPaquetes.textContent=totalPaquetes.textContent+acuPaquetes;
 }
 
+function mostrarFormularioTarjeta(){
+    const contFormulario=document.getElementById('contenedorFormulario');
+
+
+
+
+}
 
 mostrarDetalleInversiones();
+mostrarFormularioTarjeta();
