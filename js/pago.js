@@ -1,7 +1,13 @@
 import { traerProductos, urlCarro } from "./apis.js";
 
-const opTarjeta=document.getElementById('opTarjeta');
-const opTransferencia=document.getElementById('opTransferencia');
+const contTransferencia=document.getElementById('contenedorTransferencia');
+const contTarjeta=document.getElementById('contenedorTarjeta');
+
+const numeroTarjeta=document.getElementById('card-number');
+const nombreTarjeta=document.getElementById('card-name');
+const vencTarjeta=document.getElementById('expiry-date');
+const codigoCVV=document.getElementById('cvv');
+
 
 async function mostrarDetalleInversiones(){
     const inversiones=await traerProductos(urlCarro);
@@ -100,13 +106,41 @@ async function mostrarDetalleInversiones(){
     totalPaquetes.textContent=totalPaquetes.textContent+acuPaquetes;
 }
 
-function mostrarFormularioTarjeta(){
-    const contFormulario=document.getElementById('contenedorFormulario');
-
-
-
+function deshabilitarEstadoModosPago(){
+        numeroTarjeta.disabled=true;
+        nombreTarjeta.disabled=true;
+        vencTarjeta.disabled=true;
+        codigoCVV.disabled=true;
+}
+function habilitarEstadoModosPago(){
+        numeroTarjeta.disabled=false;
+        nombreTarjeta.disabled=false;
+        vencTarjeta.disabled=false;
+        codigoCVV.disabled=false;
 
 }
 
 mostrarDetalleInversiones();
-mostrarFormularioTarjeta();
+deshabilitarEstadoModosPago();
+
+contTarjeta.addEventListener('click',(evento)=>{
+    habilitarEstadoModosPago();
+    contTransferencia.style.border="grey solid";
+    contTransferencia.style.color="grey";
+    contTarjeta.style.border="rgb(223, 45, 178) solid 5px";
+    contTarjeta.style.color="black"
+    console.log("TARJETA");
+    console.log(evento.currentTarget.id);
+
+});
+
+contTransferencia.addEventListener('click',(evento)=>{
+    deshabilitarEstadoModosPago();
+    contTarjeta.style.border="grey solid";
+    contTarjeta.style.color="grey";
+    contTransferencia.style.color="black";
+    contTransferencia.style.border="rgb(223, 45, 178) solid 5px";
+    console.log("TRANSFERENCIA");
+    console.log(evento.currentTarget.id);
+});
+
