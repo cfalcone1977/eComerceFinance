@@ -11,8 +11,8 @@ export async function traerProductos(url){
        const datos = await response.json();
        return datos;
     }
-    catch{
-        console.log('Ha ocurrido un error: ');
+    catch(error){
+        console.log('Ha ocurrido un error',error);
         return null;
     }
 }

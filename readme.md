@@ -1,27 +1,29 @@
 e-Commerce FINANCE
 ...encontrando la libertad Financiera.
 
-Este proyecto es el módulo de pago y confirmación de una plataforma de comercio electrónico especializada en inversiones financieras. La aplicación permite a los usuarios revisar los detalles de sus paquetes de inversión seleccionados, elegir un método de pago y completar su transacción de manera segura.
+Este proyecto es una plataforma de comercio electrónico especializada en el sector financiero. Su objetivo es permitir a los usuarios explorar distintos instrumentos de inversión, añadir paquetes de inversión a un carrito de compras y gestionar todo el proceso de pago. La aplicación está diseñada para ser una experiencia fluida y dinámica, donde la información se actualiza sin recargar la página, permitiendo a los usuarios revisar los detalles de sus paquetes de inversión seleccionados, modificar cantidades, eliminar instrumentos en el carrito de compras y elegir un método de pago para completar su transacción de manera segura.
 
 Características Principales
-Detalle de Inversiones: Muestra una lista dinámica y detallada de los productos de inversión seleccionados, incluyendo la cantidad y el subtotal de cada uno.
+Página de Inicio: Muestra los productos de inversión disponibles para su selección.
 
-Cálculo Automático: Calcula y presenta el monto total a invertir y el número de paquetes seleccionados.
+Página de Detalle del Instrumento: Al seleccionar un producto, el usuario puede acceder a una página dedicada que muestra información detallada, incluyendo descripción, tipo, rendimiento y precio por paquete.
 
-Selección de Pago: Permite al usuario elegir entre dos métodos de pago: tarjeta de crédito/débito y transferencia bancaria.
+Gestión del Carrito: Los usuarios pueden agregar una cantidad específica de paquetes de inversión a su carrito, y el sistema detecta si un instrumento ya existe para modificar la cantidad en lugar de añadir un nuevo elemento.
 
-Formulario de Tarjeta: Incluye un formulario interactivo con validación básica en el lado del cliente para los datos de la tarjeta (número, nombre, vencimiento y CVV).
+Módulo de Pago: El usuario puede revisar el resumen de su carrito y seleccionar un método de pago, ya sea tarjeta de crédito o transferencia bancaria.
 
-Ventana Modal de Confirmación: Utiliza una ventana modal para proporcionar retroalimentación al usuario durante el proceso de validación del pago.
+Cálculo Automático: La aplicación calcula dinámicamente el monto total a invertir y el número total de paquetes seleccionados.
+
+Ventana Modal de Confirmación: Se utiliza una ventana modal para proporcionar retroalimentación al usuario durante la validación del pago.
 
 Tecnologías Utilizadas
-HTML: Para la estructura de la página y el formulario de pago.
+HTML: Para la estructura de todas las páginas de la aplicación.
 
-CSS: Para el diseño visual, la organización y la estética del módulo de pago.
+CSS: Para el diseño visual, la organización y la estética del sitio web.
 
-JavaScript: Para toda la lógica interactiva, incluyendo la manipulación del DOM, el cálculo de totales, la validación de formularios y la gestión del flujo de la ventana modal.
+JavaScript: Toda la lógica interactiva se maneja con JavaScript, incluyendo la manipulación del DOM, el cálculo de totales y la validación de formularios.
 
-AJAX (Asynchronous JavaScript and XML): La aplicación utiliza llamadas asíncronas para obtener dinámicamente los datos del carrito de inversiones. Esto permite que la información se cargue sin necesidad de recargar toda la página, proporcionando una experiencia de usuario más fluida y rápida.
+AJAX (Asynchronous JavaScript and XML): La aplicación utiliza llamadas asíncronas para obtener dinámicamente los datos de los instrumentos de inversión y el carrito. Esto permite que la información se cargue sin recargar toda la página, proporcionando una experiencia de usuario más fluida y rápida.
 
 Cómo Usar la Aplicación
 Clona este repositorio en tu máquina local.
@@ -32,7 +34,7 @@ Navega al directorio del proyecto.
 
 cd [nombre-del-repositorio]
 
-Abre el archivo index.html en tu navegador web de preferencia.
+Abre el archivo index.html en tu navegador web de preferencia para acceder a la página principal.
 
 Estructura del Proyecto
 La estructura del proyecto sigue una organización clara para facilitar el desarrollo y el mantenimiento:
