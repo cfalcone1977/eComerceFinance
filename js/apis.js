@@ -2,8 +2,12 @@
 export const urlbase="https://68b6280de5dc090291b0fcc4.mockapi.io/api/V1/instrumentos";
 export const urlCarro="https://68b6280de5dc090291b0fcc4.mockapi.io/api/V1/carrito";
 
-
-
+//Prueba
+document.addEventListener('DOMContentLoaded',async () => {
+    await verificarCarritoLlenoVacio();
+    console.log("Estoy controlando estado");
+});
+//Prueba
 export async function traerProductos(url){
     try{
        const response = await fetch(url);
@@ -167,6 +171,8 @@ export async function eliminarItemCarrito(id){
           }
 
 }
+
+
 
 
 /* El objetivo de esta funcion es conocer si existen elementos en el carrito y cambiar su estado*/

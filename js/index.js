@@ -27,5 +27,3 @@ carro.addEventListener('click',()=>{
    console.log("Estoy controlando estado");
 
 });
-
-
