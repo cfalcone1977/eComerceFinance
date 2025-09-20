@@ -45,7 +45,7 @@ async function mostrarDetalleInversiones(){
         cantidad.setAttribute('id','cantItemCarro')
         
         const subtotal=document.createElement("pre");
-        console.log(Number(inversiones[i].precio))
+        //console.log(Number(inversiones[i].precio))
         const calculoInversionItem=Number(inversiones[i].cantidad)*Number(inversiones[i].precio);
         subtotal.textContent=`$${calculoInversionItem.toFixed(2)}`;
         acumulador=acumulador+calculoInversionItem;
@@ -106,7 +106,7 @@ function habilitarEstadoModosPago(){
 
 function controlCamposTarjeta(){
   numeroTarjeta.addEventListener('input',()=>{
-        console.log(numeroTarjeta.value);
+        //console.log(numeroTarjeta.value);
         let caracter=""
         let datoIngresado="";
         for (let i = 0; i < numeroTarjeta.value.length; i=i+1) {
@@ -116,10 +116,10 @@ function controlCamposTarjeta(){
                                                                            }   
         }
         numeroTarjeta.value=datoIngresado;
-        console.log(datoIngresado);
+        //console.log(datoIngresado);
   });
   vencTarjeta.addEventListener('input',()=>{
-        console.log(vencTarjeta.value);
+        //console.log(vencTarjeta.value);
         let caracter=""
         let datoIngresado="";
         for (let i = 0; i < vencTarjeta.value.length; i=i+1) {
@@ -129,10 +129,10 @@ function controlCamposTarjeta(){
                                                                            }   
         }
         vencTarjeta.value=datoIngresado;
-        console.log(datoIngresado);
+        //console.log(datoIngresado);
   })  
   codigoCVV.addEventListener('input',()=>{
-        console.log(codigoCVV.value);
+        //console.log(codigoCVV.value);
         let caracter=""
         let datoIngresado="";
         for (let i = 0; i < codigoCVV.value.length; i=i+1) {
@@ -142,7 +142,7 @@ function controlCamposTarjeta(){
                                                                            }   
         }
         codigoCVV.value=datoIngresado;
-        console.log(datoIngresado);
+        //console.log(datoIngresado);
   })
 }
 
@@ -156,13 +156,13 @@ function mostrarValidacionTarjeta(){
    textoModal.appendChild(mensaje);
    setTimeout(()=>{
         const azar=Math.floor(Math.random() * (1000 + 1));
-        console.log(azar);
+        //console.log(azar);
         azar>500?mensaje.textContent="TARJETA APROBADA":mensaje.textContent="TARJETA INVALIDA"; 
         botonCerrarModal.style.display="inline-block";       
    },2000)
    botonCerrarModal.addEventListener('click',()=>{
        textoModal.textContent="";
-       console.log('click en boton CERRAR MODAL');
+       //console.log('click en boton CERRAR MODAL');
        ventanaModal.close();
    })
 }
@@ -179,7 +179,7 @@ function mostrarValidacionTransferencia(){
    }, 2000);
    botonCerrarModal.addEventListener('click',()=>{
        textoModal.textContent="";
-       console.log('click en boton CERRAR MODAL');
+       //console.log('click en boton CERRAR MODAL');
        ventanaModal.close();
    })
 
@@ -197,8 +197,8 @@ contTarjeta.addEventListener('click',(evento)=>{
     contTarjeta.style.color="black"
     pagoCon="TARJETA";
     controlCamposTarjeta();
-    console.log("TARJETA");
-    console.log(evento.currentTarget.id);
+    //console.log("TARJETA");
+    //console.log(evento.currentTarget.id);
 });
 
 contTransferencia.addEventListener('click',(evento)=>{
@@ -208,8 +208,8 @@ contTransferencia.addEventListener('click',(evento)=>{
     contTransferencia.style.color="black";
     contTransferencia.style.border="rgb(223, 45, 178) solid 5px";
     pagoCon="TRANSFERENCIA";
-    console.log("TRANSFERENCIA");
-    console.log(evento.currentTarget.id);
+    //console.log("TRANSFERENCIA");
+    //console.log(evento.currentTarget.id);
 });
 
 confirmarPago.addEventListener('click',()=>{
@@ -220,15 +220,15 @@ confirmarPago.addEventListener('click',()=>{
            if ((numeroTarjeta.value.length===19) && (nombreTarjeta.value!="") && (vencTarjeta.value.length===5) && (codigoCVV.value.length===3)){
                                        mostrarValidacionTarjeta();
                                                                   } else alert("Tarjeta con datos incompletos!");
-           console.log("Presiono Boton Confirmar Pago...")
-           console.log("CONTROLAR TARJETA");
-           console.log("Numero: ",numeroTarjeta.value," Nombre: ", nombreTarjeta.value, " Venc.: ", vencTarjeta.value, " CODIGO: ",codigoCVV.value);
+           //console.log("Presiono Boton Confirmar Pago...")
+           //console.log("CONTROLAR TARJETA");
+           //console.log("Numero: ",numeroTarjeta.value," Nombre: ", nombreTarjeta.value, " Venc.: ", vencTarjeta.value, " CODIGO: ",codigoCVV.value);
       }
 
     if (pagoCon==="TRANSFERENCIA"){
            mostrarValidacionTransferencia();
-           console.log("Presiono Boton Confirmar Pago...")
-           console.log("CONTROLAR TRANSFERENCIA");
+           //console.log("Presiono Boton Confirmar Pago...")
+           //console.log("CONTROLAR TRANSFERENCIA");
       }
 });
 

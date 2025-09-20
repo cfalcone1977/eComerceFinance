@@ -19,14 +19,14 @@ async function verificarCarritoLlenoVacio(){
        const datos = await response.json();
        if (datos.length>0){
                             vacioLleno=true;
-                            console.log(datos.length);
-                            console.log("carrito LLENO");
+                            //console.log(datos.length);
+                            //console.log("carrito LLENO");
                             carro.src='./imagenes/cart-lleno.svg';
                           }else {
                                 vacioLleno=false;
-                                console.log(datos.length);
+                                //console.log(datos.length);
                                 carro.src='./imagenes/cart4.svg';
-                                console.log("carrito VACIO");
+                                //console.log("carrito VACIO");
                                 }
     }
     catch(error){
@@ -45,7 +45,7 @@ if (productos==null){
                            };
 
 carro.addEventListener('click',()=>{  
-  console.log("CLICK EN CARRO");
+  //console.log("CLICK EN CARRO");
   if (vacioLleno){
                  window.location.href='./pages/carrito.html'; 
                  } else {
@@ -54,5 +54,5 @@ carro.addEventListener('click',()=>{
 });
 
     await verificarCarritoLlenoVacio();
-    console.log("Estoy controlando estado");
+    //console.log("Estoy controlando estado");
 });

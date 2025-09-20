@@ -40,11 +40,11 @@ export async function verificarCarritoLlenoVacio(){
        }
        const datos = await response.json();
        if (datos.length>0){
-                            console.log(datos.length);
-                            console.log("carrito LLENO");
+                            //console.log(datos.length);
+                            //console.log("carrito LLENO");
                             carro.src='../imagenes/cart-lleno.svg';
                           }else {
-                                console.log(datos.length);
+                                //console.log(datos.length);
                                 carro.src='../imagenes/cart4.svg';
                                 console.log("carrito VACIO");
                                 }
@@ -56,16 +56,16 @@ export async function verificarCarritoLlenoVacio(){
 
 export async function existeIntrumentoenCarrito(instrumento){
         const arregloInstrumentos=await traerProductos(urlCarro);
-        console.log("ARREGLO", arregloInstrumentos);
-        console.log(instrumento);
+        //console.log("ARREGLO", arregloInstrumentos);
+        //console.log(instrumento);
         for (let i=0; i < arregloInstrumentos.length; i=i+1) {
             if (arregloInstrumentos[i].idOrigen===instrumento.id){
-                                                                  console.log("El instrumento ya EXISTE");
+                                                                  //console.log("El instrumento ya EXISTE");
                                                                   return true;
                                                                      }
             
         }
-        console.log("El instrumento NO EXISTE");  
+        //console.log("El instrumento NO EXISTE");  
         return false;
 }
 export async function modificarCantidadxId(id,cantidad){
@@ -91,7 +91,7 @@ export async function modificarInversionCarrito(idOrigen,cantidad){
         for (let i=0; i < arregloInstrumentos.length; i=i+1) {
             if (arregloInstrumentos[i].idOrigen===idOrigen){
                                                           const cantidadModificada=Number(arregloInstrumentos[i].cantidad)+Number(cantidad);
-                                                          console.log(arregloInstrumentos[i].cantidad); 
+                                                          //console.log(arregloInstrumentos[i].cantidad); 
                                                           if ((cantidadModificada>10) || (cantidadModificada<0)){
                                                                                       alert("La INVERSION ya EXISTE en carrito, cantidad MAXIMA 10");
                                                                                     }else{
@@ -125,7 +125,7 @@ export async function enviarInversionCarrito(cantidad,instrumento){
                                       tipo: instrumento.tipo, detalle: instrumento.detalle, 
                                       redimiento: instrumento.redimiento, precio: instrumento.precio,
                                       imagen: instrumento.imagen, idOrigen: instrumento.id, cantidad: cantidad}
-            console.log(nuevoInstrumento);
+            //console.log(nuevoInstrumento);
             const response= await fetch(urlCarro,{
                                 method: 'POST',
                                 headers: {'Content-Type': 'application/json'},

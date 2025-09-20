@@ -26,18 +26,18 @@ async function verificarCarritoLlenoVacio(){
        const datos = await response.json();
        if (datos.length>0){
                             vacioLleno=true
-                            console.log(datos.length);
-                            console.log("carrito LLENO");
+                            //console.log(datos.length);
+                            //console.log("carrito LLENO");
                             carro.src='../imagenes/cart-lleno.svg';
                           }else {
                                 vacioLleno=false;
-                                console.log(datos.length);
+                                //console.log(datos.length);
                                 carro.src='../imagenes/cart4.svg';
-                                console.log("carrito VACIO");
+                                //console.log("carrito VACIO");
                                 }
     }
     catch(error){
-        console.log('Ha ocurrido un error',error);
+        //console.log('Ha ocurrido un error',error);
     }
 }
 
@@ -54,10 +54,10 @@ function crearDetalleInstrumento(instrumento){
 
 const idxURL = new URLSearchParams(window.location.search);
 const idInstrumento = idxURL.get('id');
-console.log(idInstrumento);
+//console.log(idInstrumento);
 const instrumentoCompleto= await traerProductos(urlbase+"/"+idInstrumento);
 if (instrumentoCompleto!=null){
-                            console.log(instrumentoCompleto);
+                            //console.log(instrumentoCompleto);
                             crearDetalleInstrumento(instrumentoCompleto);
                             agregaraCarro.addEventListener('click',async ()=>{
                                    const cantPaq=Number(cantidadIngresada.value)
@@ -65,7 +65,7 @@ if (instrumentoCompleto!=null){
                                                                    const confirmacion = window.confirm('¿AGREGAR AL CARRITO?');
                                                                    if (confirmacion){
                                                                                     const existe=await existeIntrumentoenCarrito(instrumentoCompleto);
-                                                                                    console.log(existe);
+                                                                                    //console.log(existe);
                                                                                     if (existe){
                                                                                                      await modificarInversionCarrito(instrumentoCompleto.id,cantPaq);   
                                                                                                      window.location.href='../index.html';
@@ -86,7 +86,7 @@ if (instrumentoCompleto!=null){
                                     }
 
 carro.addEventListener('click',()=>{
-  console.log("CLICK EN CARRO");
+  //console.log("CLICK EN CARRO");
   if (vacioLleno){
                   window.location.href=`./carrito.html`;
                  } else {
@@ -96,6 +96,6 @@ carro.addEventListener('click',()=>{
 });
 
     await verificarCarritoLlenoVacio();
-    console.log("Estoy controlando estado");
+    //console.log("Estoy controlando estado");
 });
 

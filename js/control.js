@@ -36,7 +36,7 @@ export function crearTarjetas(elementos){
 }
 
 export function mostrarError(){
-         console.log("Error al traer PRODUCTO/S");
+         //console.log("Error al traer PRODUCTO/S");
          alert("SE HA PRODUCIDO UN ERROR AL INTENTAR CARGAR ESTA PAGINA...")
 }
 
@@ -44,9 +44,9 @@ export function mostrarError(){
 export function seleccionarInstrumento(){
                             contenedorProductos.addEventListener('click',async (evento)=>{
                                      if (evento.target.id==='boton'){
-                                                              console.log(evento.target.dataset.id);
+                                                              //console.log(evento.target.dataset.id);
                                                               const identificador=Number(evento.target.dataset.id);
-                                                              console.log(identificador);
+                                                              //console.log(identificador);
                                                               window.location.href=`./pages/detalle.html?id=${identificador}`;
                                                                 }
 
