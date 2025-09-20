@@ -54,35 +54,5 @@ export function seleccionarInstrumento(){
 }
 
 
-/*
-export function cambiarEstadoCarrito(){
-   let estadoCarrito='false';
-   //verificarDatosCarrito();
-   estadoCarrito=localStorage.getItem('carritolleno');
-   if (estadoCarrito==='true'){
-                      carro.src='http://127.0.0.1:5500/imagenes/cart-lleno.svg';
-                      console.log("CARRITO LLENO")
-                     } else {
-                             carro.src='http://127.0.0.1:5500/imagenes/cart4.svg';
-                             console.log("Carrito VACIO");
-                            }
-                              
-   console.log(carro.src);
-};*/
-   
 
 
-
-
-/*
-async function mostrarDetalleInstrumento(id){
-     const instrumento=await traerProductos(urlbase+"/"+id);
-     if (instrumento!=null){
-                               
-                             console.log(instrumento);
-                             
-                             
-                           } else {
-                                   mostrarError();
-                                  }
-}*/

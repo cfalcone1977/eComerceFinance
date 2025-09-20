@@ -38,11 +38,6 @@ async function verificarCarritoLlenoVacio(){
     }
 }
 
-
-
-
-
-
 function crearDetalleInstrumento(instrumento){
         imagenD.src=instrumento.imagen;
         descripcionD.textContent=instrumento.descripcion;

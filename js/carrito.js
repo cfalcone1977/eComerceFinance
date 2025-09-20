@@ -124,13 +124,7 @@ function seleccionarItem(){
                                                               mostrarInstrumentosCarrito(instrumentosCarro);
                                                               await verificarCarritoLlenoVacio();
                                                                 }
-                                     /*
-                                     if (evento.target.id==='contCant'){ 
-                                                                       console.log(evento.target.textContent);
-                                                                       const cantidad=Number(evento.target.textContent);
-                                                                       evento.target.textContent=cantidad+1;
-                                                                       console.log(evento.target.textContent);
-                                                                       }*/
+
 
                                      if (evento.target.id==='botonMas'){
                                                               console.log("Aumenta Cantidad");
@@ -154,32 +148,16 @@ function seleccionarItem(){
                                                                           const nuevoTotal=(Number(total.textContent))-(cantidadAnterior*(Number(precio.textContent)))+(calculoSubtotal);
                                                                           console.log(nuevoTotal);
                                                                           total.textContent=nuevoTotal.toFixed(2);
-                                                                          //console.log(evento.target.dataset.id);
+                                                                        
                                                                           const idInstrCarrito=Number(evento.target.dataset.id);
                                                                           console.log(idInstrCarrito);
                                                                           modificarCantidadxId(idInstrCarrito,cantidad);
-                                                                          /*
-                                                                          const precio=document.getElementById("contPrecio");
-                                                                          const calculoNuevoSubtotal=cantidad*Number(precio.textContent);
-                                                                          console.log(calculoNuevoSubtotal);
-                                                                          const subTotal=document.getElementById("contSubtotal");
-                                                                          subTotal.textContent=`$ ${calculoNuevoSubtotal}`;*/
+
                                                                               }else{
                                                                                     console.log("La inversión MAXIMA es de 10 paquetes");
                                                                                     alert("La inversión MAXIMA es 10 paquetes.");
                                                                                    }
-                                                               /*
-                                                              console.log(contenedorPadre);
-                                                              console.log(contenedorPadre.id);
-                                                              console.log(contenedorPadre.textContent);
-                                                              console.log(evento.target.dataset.id);
-                                                              const identificadorMas=evento.target.dataset.id;*/
-                                                              //const instrumentoCarroMas=await traerInstrumentoCarritoxID(identificadorMas);
-                                                              //console.log(instrumentoCarroMas.cantidad);//instrumentoCarroMas.cantidad
-                                                              //hay que traer inversion, cambiar cantidad y enviar a modificarla
-                                                              //console.log(instrumentosCarroMas)
-                                                              //modificarInversionCarrito(identificador,cantidad);
-                                                                       }                                                                       
+                                                                        }                                                                       
                                      if (evento.target.id==='botonMenos'){
                                                               console.log("Disminuye Cantidad");
                                                               const contenedorPadre=evento.target.parentElement;
@@ -210,22 +188,7 @@ function seleccionarItem(){
                                                                                 console.log("La inversión MINIMA es de 1 paquete");
                                                                                 alert("La inversión MINIMA es 1 paquete.");
                                                                              }
-
-
-
-
-                                                              /*
-                                                              console.log(evento.target.dataset.id);
-                                                              const identificadorMenos=evento.target.dataset.id;
-                                                              const instrumentoCarroMenos=await traerInstrumentoCarritoxID(identificadorMenos);                                              
-                                                              console.log(instrumentoCarroMenos.cantidad);*/
-                                                              /*
-                                                              if (instrumentoCarroMenos.cantidad>1){
-                                                                          console.log(`DescontarCantidad ${instrumentoCarroMenos.cantidad-1}`);
-                                                              }else {
-                                                                      console.log("Cantidad no puede ser menor de 1")
-                                                                    }*/
-                                                              //modificarInversionCarrito(identificador,cantidad);                                                              
+                                                           
                                                                        }    
                                                                                                                                            
 

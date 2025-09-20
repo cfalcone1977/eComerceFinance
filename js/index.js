@@ -46,7 +46,6 @@ carro.addEventListener('click',()=>{
   window.location.href='./pages/carrito.html';
 });
 
-
     await verificarCarritoLlenoVacio();
     console.log("Estoy controlando estado");
 });

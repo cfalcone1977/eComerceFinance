@@ -1,12 +1,6 @@
-
 export const urlbase="https://68b6280de5dc090291b0fcc4.mockapi.io/api/V1/instrumentos";
 export const urlCarro="https://68b6280de5dc090291b0fcc4.mockapi.io/api/V1/carrito";
 
-/*
-document.addEventListener('DOMContentLoaded',async () => {
-    await verificarCarritoLlenoVacio();
-    console.log("Estoy controlando estado");
-});*/
 
 export async function traerProductos(url){
     try{
@@ -32,8 +26,8 @@ export async function traerInstrumentoCarritoxID(id){
        const dato = await response.json();
        return dato;
     }
-    catch{
-        console.log('Ha ocurrido un error: ');
+    catch(error){
+        console.log('Ha ocurrido un error: ', error);
         return null;
     }
 }
@@ -86,8 +80,8 @@ export async function modificarCantidadxId(id,cantidad){
                            throw new Error(`Error al conectar: ${response.status}`);
                             }          
    }
-   catch{
-      console.log('Ha ocurrido un error');
+   catch(error){
+      console.log('Ha ocurrido un error', error);
    }
 }
 
@@ -96,7 +90,6 @@ export async function modificarInversionCarrito(idOrigen,cantidad){
         const arregloInstrumentos=await traerProductos(urlCarro);
         for (let i=0; i < arregloInstrumentos.length; i=i+1) {
             if (arregloInstrumentos[i].idOrigen===idOrigen){
-                                                          //arregloInstrumentos[i].cantidad=Number(arregloInstrumentos[i].cantidad)+Number(cantidad);
                                                           const cantidadModificada=Number(arregloInstrumentos[i].cantidad)+Number(cantidad);
                                                           console.log(arregloInstrumentos[i].cantidad); 
                                                           if ((cantidadModificada>10) || (cantidadModificada<0)){
@@ -121,8 +114,8 @@ export async function modificarInversionCarrito(idOrigen,cantidad){
             
         }
     }
-    catch{
-           console.log('Ha ocurrido un error');
+    catch(error){
+           console.log('Ha ocurrido un error', error);
          }
 }
 
@@ -145,8 +138,8 @@ export async function enviarInversionCarrito(cantidad,instrumento){
                               }
 
           }
-          catch{
-             console.log('Ha ocurrido un error: ');
+          catch(error){
+             console.log('Ha ocurrido un error: ', error);
           }
 }
 
@@ -157,7 +150,6 @@ export async function eliminarItemCarrito(id){
             try{
             const response= await fetch(urlCarro+"/"+id,{
                                 method: 'DELETE',
-                                //headers: {'Content-Type': 'application/json'}
                                 });
             if (!response.ok) {
                         throw new Error(`Error al conectar: ${response.status}`);
@@ -166,32 +158,8 @@ export async function eliminarItemCarrito(id){
                                     }
 
           }
-          catch{
-             console.log('Ha ocurrido un error: ');
+          catch(error){
+             console.log('Ha ocurrido un error: ', error);
           }
 
 }
-
-
-
-
-/* El objetivo de esta funcion es conocer si existen elementos en el carrito y cambiar su estado*/
-/*
-export async function verificarDatosCarrito(){
- try{
-       const response = await fetch(urlCarro);
-       if (!response.ok) {
-          throw new Error(`Error al conectar: ${response.status}`);
-       }
-       const contarInstrumentos = await response.json();
-       console.log(contarInstrumentos.length);
-       if (contarInstrumentos.length===0){
-                                          localStorage.setItem('carritolleno','false'); 
-                                         } else{
-                                                localStorage.setItem('carritolleno', 'true');
-                                               };
-    }
-    catch{
-        console.log('Ha ocurrido un error: ');
-    }
-}*/

@@ -171,8 +171,14 @@ function mostrarValidacionTransferencia(){
    ventanaModal.showModal();
    const textoModal=document.getElementById('textoModal');
    const mensaje=document.createElement('p');
-   mensaje.textContent="Estaremos esperando tu transferencia.";
+   mensaje.textContent="Preparando tu inversión💸💸..."
    textoModal.appendChild(mensaje);
+   setTimeout(() => {
+       mensaje.textContent="Estaremos esperando tu transferencia.";
+       textoModal.appendChild(mensaje);
+   }, 2000);
+   //mensaje.textContent="Estaremos esperando tu transferencia.";
+   //textoModal.appendChild(mensaje);
    botonCerrarModal.addEventListener('click',()=>{
        textoModal.textContent="";
        console.log('click en boton CERRAR MODAL');
@@ -209,6 +215,9 @@ contTransferencia.addEventListener('click',(evento)=>{
 });
 
 confirmarPago.addEventListener('click',()=>{
+    if (pagoCon===""){
+         alert("FALTA seleccionar Método de PAGO...");
+     }    
     if (pagoCon==="TARJETA"){
            if ((numeroTarjeta.value.length===19) && (nombreTarjeta.value!="") && (vencTarjeta.value.length===5) && (codigoCVV.value.length===3)){
                                        mostrarValidacionTarjeta();

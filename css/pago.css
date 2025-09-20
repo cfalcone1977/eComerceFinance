@@ -18,24 +18,24 @@
 }
 
 #contImg{
-    width: 40px;/*11*/
+    width: 40px;
 }
 #contDesc{
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    /*width: 150px;*/  /*33*/
+
 
 }
 #contCant{
-    width: 10px;  /*4*/
+    width: 10px;  
 
 }
 #contPrecio{
-    width: 55px;  /*13*/
+    width: 55px;  
 }
 #contSubtotal{
-    width: 65px;  /*16*/
+    width: 65px;  
 }
 
 #contenedorTotal{
@@ -66,6 +66,7 @@
     flex-direction: column;
     gap: 5px;
 }
+
 /* Quita las flechas en Chrome, Safari, Edge, Opera */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -85,7 +86,7 @@ input[type="number"]::-webkit-inner-spin-button {
     box-shadow: 0px 0px 10px 4px grey;
     color: grey;
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem; /* Un tamaño un poco más grande */
+    font-size: 1.1rem;
     letter-spacing: 1px; /* Espacio entre los caracteres para mayor claridad */
 
 }
@@ -115,7 +116,7 @@ h3{
     box-shadow: 0px 0px 10px 4px grey;
     color: grey;
     font-family: 'Inter', sans-serif;
-    font-size: 14px; /* Un tamaño un poco más grande */
+    font-size: 14px; 
     letter-spacing: 1px; /* Espacio entre los caracteres para mayor claridad */
 }
 #contenedorTransferencia:hover{
@@ -132,7 +133,6 @@ h3{
  border: none;
  height: 22px;
  border-radius: 5px;
- /*box-shadow: 1px 1px 1px 1px beige;*/
  margin-top: 10px;
  text-align: center;
 }
@@ -191,25 +191,3 @@ h3{
     transition: 0.4s;
     cursor: pointer;
 }
-
-
-/*
-@media (max-width: 650px){
-    #contImg{
-            width: 8%;
-}
-#contDesc{
-    font-size: 7px;
-
-}
-#contCant{
-    font-size: 11px;
-
-}
-#contPrecio{
-    font-size: 11px;
-}
-#contSubtotal{
-    font-size: 11px;
-}
-}*/

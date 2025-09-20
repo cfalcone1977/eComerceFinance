@@ -47,7 +47,6 @@
 #seccionDatos{
    display: flex;
    flex-direction: column;
-   /*text-align: justify;*/
    text-align: center;
    width: 80%;
    font-family: 'poppins';
