@@ -43,7 +43,7 @@ async function mostrarDetalleInversiones(){
         */
 
         const precio=document.createElement("pre");
-        precio.textContent=`$ ${inversiones[i].precio}`;
+        precio.textContent=`$${inversiones[i].precio}`;
 
         const cantidad=document.createElement("pre");
         cantidad.textContent=inversiones[i].cantidad;
@@ -52,7 +52,7 @@ async function mostrarDetalleInversiones(){
         const subtotal=document.createElement("pre");
         console.log(Number(inversiones[i].precio))
         const calculoInversionItem=Number(inversiones[i].cantidad)*Number(inversiones[i].precio);
-        subtotal.textContent=`$ ${calculoInversionItem.toFixed(2)}`;
+        subtotal.textContent=`$${calculoInversionItem.toFixed(2)}`;
         acumulador=acumulador+calculoInversionItem;
         acuPaquetes=acuPaquetes+(Number(inversiones[i].cantidad));
 
