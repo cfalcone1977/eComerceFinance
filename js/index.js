@@ -8,6 +8,7 @@ import { crearTarjetas, seleccionarInstrumento, mostrarError, carro} from "./con
 
 
 const productos= await traerProductos(urlbase);
+let vacioLleno=false;
 
 async function verificarCarritoLlenoVacio(){
     try{
@@ -17,10 +18,12 @@ async function verificarCarritoLlenoVacio(){
        }
        const datos = await response.json();
        if (datos.length>0){
+                            vacioLleno=true;
                             console.log(datos.length);
                             console.log("carrito LLENO");
                             carro.src='./imagenes/cart-lleno.svg';
                           }else {
+                                vacioLleno=false;
                                 console.log(datos.length);
                                 carro.src='./imagenes/cart4.svg';
                                 console.log("carrito VACIO");
@@ -43,7 +46,11 @@ if (productos==null){
 
 carro.addEventListener('click',()=>{  
   console.log("CLICK EN CARRO");
-  window.location.href='./pages/carrito.html';
+  if (vacioLleno){
+                 window.location.href='./pages/carrito.html'; 
+                 } else {
+                        alert("CARRITO VACIO");
+                       }
 });
 
     await verificarCarritoLlenoVacio();

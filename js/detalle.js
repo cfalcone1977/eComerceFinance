@@ -15,6 +15,7 @@ const precioPaqueteD=document.getElementById('precioPaqueteD');
 
 const cantidadIngresada=document.getElementById("inputCantidad");
 const agregaraCarro=document.getElementById('botonAgregaraCarro');
+let vacioLleno=false
 
 async function verificarCarritoLlenoVacio(){
     try{
@@ -24,10 +25,12 @@ async function verificarCarritoLlenoVacio(){
        }
        const datos = await response.json();
        if (datos.length>0){
+                            vacioLleno=true
                             console.log(datos.length);
                             console.log("carrito LLENO");
                             carro.src='../imagenes/cart-lleno.svg';
                           }else {
+                                vacioLleno=false;
                                 console.log(datos.length);
                                 carro.src='../imagenes/cart4.svg';
                                 console.log("carrito VACIO");
@@ -84,7 +87,12 @@ if (instrumentoCompleto!=null){
 
 carro.addEventListener('click',()=>{
   console.log("CLICK EN CARRO");
-  window.location.href=`./carrito.html`;
+  if (vacioLleno){
+                  window.location.href=`./carrito.html`;
+                 } else {
+                           alert("CARRITO VACIO");
+                        }
+
 });
 
     await verificarCarritoLlenoVacio();

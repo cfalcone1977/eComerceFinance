@@ -3,12 +3,9 @@ import { traerInstrumentoCarritoxID, modificarInversionCarrito, modificarCantida
 import { mostrarError } from "./control.js";
 
 const contenedorDetalleCarrito=document.getElementById("contenedorDetalleCarrito");
-
 const total=document.getElementById('total');
 const botonPagar=document.getElementById('botonPagar');
-
 const instrumentos=await traerProductos(urlCarro);
-
 
 function mostrarInstrumentosCarrito(inversiones){
     let acumulador=0;
@@ -25,10 +22,6 @@ function mostrarInstrumentosCarrito(inversiones){
         descripcion.textContent=inversiones[i].descripcion;
         descripcion.style.fontSize='12px';
 
-       /*
-        const rendimiento=document.createElement("p");
-        rendimiento.textContent=inversiones[i].redimiento;
-        */
 
         const precio=document.createElement("pre");
         precio.textContent=`${inversiones[i].precio}`;
@@ -99,11 +92,17 @@ function mostrarInstrumentosCarrito(inversiones){
 
 if (instrumentos!=null){
                          console.log(instrumentos);
-                         mostrarInstrumentosCarrito(instrumentos);
-                         seleccionarItem();
-                         botonPagar.addEventListener('click',()=>{
-                                  console.log("INICIAR PAGO");
-                         });
+                         if (instrumentos.length>0){
+                                        mostrarInstrumentosCarrito(instrumentos);
+                                        seleccionarItem();
+                                        botonPagar.addEventListener('click',()=>{
+                                                      console.log("INICIAR PAGO");
+                                        });
+                                                   }else{
+                                                        console.log("volver a INDEX por carrito vacio");
+                                                        window.location.href=`../index.html`;
+                                                        }
+
                        } else {
                                mostrarError();
                               };
@@ -121,8 +120,14 @@ function seleccionarItem(){
                                                               total.textContent="";
                                                               const instrumentosCarro=await traerProductos(urlCarro);
                                                               console.log(instrumentosCarro);
-                                                              mostrarInstrumentosCarrito(instrumentosCarro);
-                                                              await verificarCarritoLlenoVacio();
+                                                              if (instrumentosCarro.length>0){
+                                                                        mostrarInstrumentosCarrito(instrumentosCarro);
+                                                                                             
+                                                                  }else{
+                                                                       console.log("volver a INDEX por carrito vacio");
+                                                                       window.location.href=`../index.html`;
+                                                                        }
+                                                              //await verificarCarritoLlenoVacio();
                                                                 }
 
 
