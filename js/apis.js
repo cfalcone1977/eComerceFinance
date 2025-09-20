@@ -2,12 +2,12 @@
 export const urlbase="https://68b6280de5dc090291b0fcc4.mockapi.io/api/V1/instrumentos";
 export const urlCarro="https://68b6280de5dc090291b0fcc4.mockapi.io/api/V1/carrito";
 
-//Prueba
+/*
 document.addEventListener('DOMContentLoaded',async () => {
     await verificarCarritoLlenoVacio();
     console.log("Estoy controlando estado");
-});
-//Prueba
+});*/
+
 export async function traerProductos(url){
     try{
        const response = await fetch(url);
@@ -48,15 +48,15 @@ export async function verificarCarritoLlenoVacio(){
        if (datos.length>0){
                             console.log(datos.length);
                             console.log("carrito LLENO");
-                            carro.src='../imagenes/cart-lleno.svg?solo=1234';
+                            carro.src='../imagenes/cart-lleno.svg';
                           }else {
                                 console.log(datos.length);
                                 carro.src='../imagenes/cart4.svg';
                                 console.log("carrito VACIO");
                                 }
     }
-    catch{
-        console.log('Ha ocurrido un error');
+    catch(error){
+        console.log('Ha ocurrido un error',error);
     }
 }
 

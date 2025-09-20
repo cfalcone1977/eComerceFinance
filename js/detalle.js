@@ -1,12 +1,12 @@
-import { urlbase } from "./apis.js";  
-import { mostrarError, carro } from "./control.js";
-import { traerProductos, enviarInversionCarrito, verificarCarritoLlenoVacio, existeIntrumentoenCarrito, modificarInversionCarrito} from "./apis.js";
+import { urlbase, urlCarro, traerProductos, existeIntrumentoenCarrito } from "./apis.js";  
+import { mostrarError, carro} from "./control.js";
+import { enviarInversionCarrito, modificarInversionCarrito} from "./apis.js";
     
+
 document.addEventListener('DOMContentLoaded',async () => {
     await verificarCarritoLlenoVacio();
     console.log("Estoy controlando estado");
 });
-
 
 const imagenD=document.getElementById('imagenD');
 const descripcionD=document.getElementById('descripcionD');
@@ -18,6 +18,33 @@ const precioPaqueteD=document.getElementById('precioPaqueteD');
 //const carrito=document.getElementById('carro');
 const cantidadIngresada=document.getElementById("inputCantidad");
 const agregaraCarro=document.getElementById('botonAgregaraCarro');
+
+async function verificarCarritoLlenoVacio(){
+    try{
+       const response = await fetch(urlCarro);
+       if (!response.ok) {
+          throw new Error(`Error al conectar: ${response.status}`);
+       }
+       const datos = await response.json();
+       if (datos.length>0){
+                            console.log(datos.length);
+                            console.log("carrito LLENO");
+                            carro.src='../imagenes/cart-lleno.svg';
+                          }else {
+                                console.log(datos.length);
+                                carro.src='../imagenes/cart4.svg';
+                                console.log("carrito VACIO");
+                                }
+    }
+    catch(error){
+        console.log('Ha ocurrido un error',error);
+    }
+}
+
+
+
+
+
 
 function crearDetalleInstrumento(instrumento){
         imagenD.src=instrumento.imagen;
@@ -71,8 +98,6 @@ carro.addEventListener('click',()=>{
   console.log("CLICK EN CARRO");
   window.location.href=`./carrito.html`;
 });
-
-
 
 
 

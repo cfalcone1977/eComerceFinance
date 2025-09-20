@@ -1,10 +1,6 @@
-import { traerProductos, urlbase } from "./apis.js"; 
-
-
-
-
 const contenedorProductos=document.getElementById("contenedorProductos");
 export const carro=document.getElementById('carro');
+
 
 export function crearTarjetas(elementos){
    for (let i = 0; i < elementos.length; i=i+1) {

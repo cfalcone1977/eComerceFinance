@@ -37,11 +37,6 @@ async function mostrarDetalleInversiones(){
         descripcion.textContent=inversiones[i].descripcion;
         descripcion.style.fontSize='14px';
 
-       /*
-        const rendimiento=document.createElement("p");
-        rendimiento.textContent=inversiones[i].redimiento;
-        */
-
         const precio=document.createElement("pre");
         precio.textContent=`$${inversiones[i].precio}`;
 
@@ -76,26 +71,11 @@ async function mostrarDetalleInversiones(){
 
         contImg.appendChild(imagen);
         tarjetaInversion.appendChild(contImg);
-        /*
-        const descText=document.createElement('pre');
-        descText.textContent='Descripcion';
-        contDesc.appendChild(descText);*/
+
         contDesc.appendChild(descripcion);
         tarjetaInversion.appendChild(contDesc);
 
-
-        //const botonMas=document.createElement('img');
-        //botonMas.setAttribute('id','botonMas');
-        //botonMas.src='../imagenes/mas.svg';
-        //botonMas.setAttribute('data-id',inversiones[i].id);  //uso idOrigen en este caso
-        //const botonMenos=document.createElement('img');
-        //botonMenos.setAttribute('id','botonMenos');
-        //botonMenos.src='../imagenes/menos.svg';
-        //botonMenos.setAttribute('data-id',inversiones[i].id); //uso idOrigen o id en este caso CREO es conveniente id
-
-        //contCant.appendChild(botonMenos);
         contCant.appendChild(cantidad);
-        //contCant.appendChild(botonMas);
         tarjetaInversion.appendChild(contCant);
 
         contPrecio.appendChild(precio);
@@ -104,8 +84,6 @@ async function mostrarDetalleInversiones(){
         contSubtotal.appendChild(subtotal);
         tarjetaInversion.appendChild(contSubtotal);
 
-        //contEliminar.appendChild(botonEliminar);
-        //tarjetaInversion.appendChild(contEliminar);  
         detalleInversiones.appendChild(tarjetaInversion);
     }
     totalInversiones.textContent=totalInversiones.textContent+ acumulador.toLocaleString('es-AR',{minimumFractionDigits: 2,maximumFractionDigits:2});
