@@ -19,21 +19,24 @@
 }
 
 #contImg{
-    width: 11%;
+    width: 40px;/*11*/
 }
 #contDesc{
-    width: 33%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 150px;  /*33*/
 
 }
 #contCant{
-    width: 4%;  
+    width: 10px;  /*4*/
 
 }
 #contPrecio{
-    width: 13%;
+    width: 55px;  /*13*/
 }
 #contSubtotal{
-    width: 16%;
+    width: 65px;  /*16*/
 }
 
 #contenedorTotal{
