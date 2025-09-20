@@ -47,7 +47,8 @@
 #seccionDatos{
    display: flex;
    flex-direction: column;
-   text-align: justify;
+   /*text-align: justify;*/
+   text-align: center;
    width: 80%;
    font-family: 'poppins';
    font-size: 14px;
@@ -63,6 +64,9 @@
 
 }
 #tipoD, #detalleD, #rendimientoD, #precioPaqueteD{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 0px;
     margin-bottom: 2px;
 }
@@ -82,8 +86,12 @@
 
 #seccionCantidad{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+#detalleCantidad{
+    margin-top: 0;
+    text-align: center;
 }
 
 #inputCantidad{

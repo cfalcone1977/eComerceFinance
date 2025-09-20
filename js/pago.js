@@ -26,7 +26,7 @@ async function mostrarDetalleInversiones(){
     let acuPaquetes=0;
     for (let i=0; i < inversiones.length; i=i+1) {
         const tarjetaInversion=document.createElement("card");
-        tarjetaInversion.style.maxWidth='80%'; 
+        tarjetaInversion.style.maxWidth='90%'; 
         tarjetaInversion.setAttribute('id','tarjetaInversion');
 
         const imagen=document.createElement("img");

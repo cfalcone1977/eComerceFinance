@@ -4,9 +4,7 @@ import { enviarInversionCarrito, modificarInversionCarrito} from "./apis.js";
     
 
 document.addEventListener('DOMContentLoaded',async () => {
-    await verificarCarritoLlenoVacio();
-    console.log("Estoy controlando estado");
-});
+
 
 const imagenD=document.getElementById('imagenD');
 const descripcionD=document.getElementById('descripcionD');
@@ -15,7 +13,6 @@ const detalleD=document.getElementById('detalleD');
 const rendimientoD=document.getElementById('rendimientoD');
 const precioPaqueteD=document.getElementById('precioPaqueteD');
 
-//const carrito=document.getElementById('carro');
 const cantidadIngresada=document.getElementById("inputCantidad");
 const agregaraCarro=document.getElementById('botonAgregaraCarro');
 
@@ -55,10 +52,6 @@ function crearDetalleInstrumento(instrumento){
         precioPaqueteD.textContent="Monto Inversión en pesos:  $ "+instrumento.precio+" por paquete";
 }
 
-/*
-function enviarInversionCarrito(cantidadIngresada,instrumento){
-        
-}*/
 
 
 const idxURL = new URLSearchParams(window.location.search);
@@ -99,44 +92,7 @@ carro.addEventListener('click',()=>{
   window.location.href=`./carrito.html`;
 });
 
+    await verificarCarritoLlenoVacio();
+    console.log("Estoy controlando estado");
+});
 
-
-
-/*
-carritoConInstrumentos
- document.addEventListener('DOMContentLoaded', () => {
-           if (instrumento!=null){  
-                               console.log(instrumento.descripcion);
-                               const descripcionDetalle=document.getElementById("descripcionD");
-                               descripcionDetalle.textContent=instrumento.descripcion;
-                               console.log(descripcionDetalle);
-
-            } else {
-                     mostrarError();
-                   };
-         });          
-*/
-/*
-export async function mostrarDetalleInstrumento(id){
-         const instrumento=await traerProductos(urlbase+"/"+id);
-         console.log(instrumento.descripcion);
-         document.addEventListener('DOMContentLoaded', () => {
-           if (instrumento!=null){  
-                               const descripcionDetalle=document.getElementById("descripcionD");
-                               descripcionDetalle.textContent=instrumento.descripcion;
-                               console.log(descripcionDetalle);
-
-            } else {
-                     mostrarError();
-                   };
-         });          
-}
-*/
-
-
-
-
-/*
-                        document.addEventListener('DOMContentLoaded', () => {
-                                                });
-                            });*/

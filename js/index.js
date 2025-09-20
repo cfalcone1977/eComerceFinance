@@ -4,9 +4,7 @@ import { crearTarjetas, seleccionarInstrumento, mostrarError, carro} from "./con
 
 
  document.addEventListener('DOMContentLoaded',async () => {
-    await verificarCarritoLlenoVacio();
-    console.log("Estoy controlando estado");
-});
+
 
 
 const productos= await traerProductos(urlbase);
@@ -48,3 +46,7 @@ carro.addEventListener('click',()=>{
   window.location.href='./pages/carrito.html';
 });
 
+
+    await verificarCarritoLlenoVacio();
+    console.log("Estoy controlando estado");
+});
