@@ -123,6 +123,13 @@
 }
 
 @media (max-width: 450px){
+ #contCant{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    gap: 0px;
+ }   
  #titulo{
  font-size: 14px;
 }   

@@ -31,7 +31,7 @@ function mostrarInstrumentosCarrito(inversiones){
         */
 
         const precio=document.createElement("pre");
-        precio.textContent=`${inversiones[i].precio}`;
+        precio.textContent=` $${inversiones[i].precio}`;
 
         const cantidad=document.createElement("pre");
         cantidad.textContent=inversiones[i].cantidad;
