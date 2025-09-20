@@ -45,7 +45,7 @@ export async function verificarCarritoLlenoVacio(){
                             carro.src='../imagenes/cart-lleno.svg?v=123456789';
                           }else {
                                 console.log(datos.length);
-                                carro.src='../imagenes/cart4.svg';
+                                carro.src='../imagenes/cart4.svg?t=4567';
                                 console.log("carrito VACIO");
                                 }
     }
