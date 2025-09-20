@@ -44,10 +44,10 @@ export async function verificarCarritoLlenoVacio(){
        if (datos.length>0){
                             console.log(datos.length);
                             console.log("carrito LLENO");
-                            carro.src='../imagenes/cart-lleno.svg?v=123456789';
+                            carro.src='../imagenes/cart-lleno.svg';
                           }else {
                                 console.log(datos.length);
-                                carro.src='../imagenes/cart4.svg?t=4567';
+                                carro.src='../imagenes/cart4.svg';
                                 console.log("carrito VACIO");
                                 }
     }
