@@ -44,7 +44,7 @@ export async function verificarCarritoLlenoVacio(){
        if (datos.length>0){
                             console.log(datos.length);
                             console.log("carrito LLENO");
-                            carro.src='../imagenes/cart-lleno.svg';
+                            carro.src='../imagenes/cart-lleno.svg?solo=1234';
                           }else {
                                 console.log(datos.length);
                                 carro.src='../imagenes/cart4.svg';
