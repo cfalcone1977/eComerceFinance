@@ -16,10 +16,10 @@ header{
 }
 
 h1 {
-    margin-bottom: 0; /* Elimina el espacio debajo del h1 */
+    margin-bottom: 0;
 }
 h3 {
-    margin-top: 0; /* Elimina el espacio encima del h2 */
+    margin-top: 0;
 }
 
 
@@ -103,7 +103,7 @@ gap: 4%;
 
 #tarjeta button {
     margin-top: auto; /* Esto empuja el elemento al final del contenedor */
-    margin-bottom: 20px; /* Le da el espacio deseado del borde inferior */
+    margin-bottom: 20px;
 }
 
 #imagenInversion{

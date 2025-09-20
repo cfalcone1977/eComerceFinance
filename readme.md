@@ -8,7 +8,7 @@ Página de Inicio: Muestra los productos de inversión disponibles para su selec
 
 Página de Detalle del Instrumento: Al seleccionar un producto, el usuario puede acceder a una página dedicada que muestra información detallada, incluyendo descripción, tipo, rendimiento y precio por paquete.
 
-Gestión del Carrito: Los usuarios pueden agregar una cantidad específica de paquetes de inversión a su carrito, y el sistema detecta si un instrumento ya existe para modificar la cantidad en lugar de añadir un nuevo elemento.
+Gestión del Carrito: Los usuarios pueden agregar una cantidad específica de paquetes de inversión a su carrito, y el sistema detecta si un instrumento ya existe para modificar la cantidad en lugar de añadir un nuevo elemento. También desde esta página es posible adicionar y disminuir paquetes o eliminar intrumentos completos del carro de compras. 
 
 Módulo de Pago: El usuario puede revisar el resumen de su carrito y seleccionar un método de pago, ya sea tarjeta de crédito o transferencia bancaria.
 
@@ -16,7 +16,7 @@ Cálculo Automático: La aplicación calcula dinámicamente el monto total a inv
 
 Ventana Modal de Confirmación: Se utiliza una ventana modal para proporcionar retroalimentación al usuario durante la validación del pago.
 
-Tecnologías Utilizadas
+Tecnologías Utilizadas.
 HTML: Para la estructura de todas las páginas de la aplicación.
 
 CSS: Para el diseño visual, la organización y la estética del sitio web.
@@ -25,14 +25,14 @@ JavaScript: Toda la lógica interactiva se maneja con JavaScript, incluyendo la 
 
 AJAX (Asynchronous JavaScript and XML): La aplicación utiliza llamadas asíncronas para obtener dinámicamente los datos de los instrumentos de inversión y el carrito. Esto permite que la información se cargue sin recargar toda la página, proporcionando una experiencia de usuario más fluida y rápida.
 
-Cómo Usar la Aplicación
+Cómo Usar la Aplicación.
 Clona este repositorio en tu máquina local.
 
-git clone [URL-DEL-REPOSITORIO]
+git clone [https://github.com/cfalcone1977/eComerceFinance]
 
 Navega al directorio del proyecto.
 
-cd [nombre-del-repositorio]
+cd [eComerceFinance]
 
 Abre el archivo index.html en tu navegador web de preferencia para acceder a la página principal.
 
@@ -48,6 +48,7 @@ eCommerce-Finance/
 ├── imagenes/
 │   ├── cart-lleno.svg
 │   ├── cart4.svg
+│   ├── favicon-32x32.png
 │   ├── mas.svg
 │   └── menos.svg
 ├── js/

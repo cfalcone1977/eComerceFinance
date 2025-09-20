@@ -177,8 +177,6 @@ function mostrarValidacionTransferencia(){
        mensaje.textContent="Estaremos esperando tu transferencia.";
        textoModal.appendChild(mensaje);
    }, 2000);
-   //mensaje.textContent="Estaremos esperando tu transferencia.";
-   //textoModal.appendChild(mensaje);
    botonCerrarModal.addEventListener('click',()=>{
        textoModal.textContent="";
        console.log('click en boton CERRAR MODAL');
